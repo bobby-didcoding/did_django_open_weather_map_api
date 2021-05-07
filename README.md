@@ -1,5 +1,5 @@
-# did_django_spoontaculer_api
-Django project that demonstrates how to shchedule job in Django
+# did_django_open_weather_map_api
+Django project that demonstrates how to use open weather map api in a Django project
 
 1) cd to development directory
 2) mkvirtualenv did_django_schedule_jobs
