@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a class="active" href="javascript:void(0)">Home</a></li>
+  <li><a href="{% url 'main:results' %}">Results</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3 id="map">Django Spoontacular API Demo - Home</h3>
+
+<div class="container">
+
+	<form id="apiform" method="POST" action="/">
+    {% csrf_token %}
+
+	   <label>Search UK Postcode</label>
+	   <input type="search" id="query" name="query">
+
+	   <button type="submit">Submit</button>
+	</form>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+
+
+{% endblock %}

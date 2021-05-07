@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load did_tags %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'main:home' %}">Home</a></li>
+  <li><a class="active" href="javascript:void(0)">Results</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3 id="map">Django Spoontacular API Demo - Results</h3>
+
+<div class="container">
+
+	<h4>API Results for:</h4>
+	<h3>Query: <em style="color: #9c07b6"><b>"{{query}}"</b></em></h3>
+	  <table>
+	    <thead>
+	      <tr>
+	        <th>Sunrise</th>
+	        <th>Sunset</th>
+			<th>Weather</th>
+			<th>Clouds (%)</th>
+			<th>Humidity (%)</th>
+			<th>Wind speed</th>
+			<th>UV Index</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    {% for item in results %}
+	      <tr>
+	        <td>{{item.sunrise|unix}}</td>
+	        
+	        <td>{{item.sunset|unix}}</td>
+	        
+	        <td>{{item.weather.0.description}}</td>
+	        
+	        <td>{{item.clouds}}</td>
+	        <td>{{item.humidity}}</td>
+	        <td>{{item.wind_speed}}</td>
+
+	        <td>{{item.uvi}}</td>
+	      </tr>
+	    {% endfor %}
+	      
+	    </tbody>
+	  </table>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+
+
+{% endblock %}
